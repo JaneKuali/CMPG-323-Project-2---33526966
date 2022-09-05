@@ -33,8 +33,7 @@ namespace API_Project_2.Controllers
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
             var user = await userManager.FindByNameAsync(model.Username);
-            if (user != null && await userManager.CheckPasswordAsync(user,
-           model.Password))
+            if (user != null && await userManager.CheckPasswordAsync(user, model.Password))
             {
                 var userRoles = await userManager.GetRolesAsync(user);
                 var authClaims = new List<Claim>
@@ -79,6 +78,7 @@ namespace API_Project_2.Controllers
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UserName = model.Username
             };
+
             var result = await userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response
@@ -129,13 +129,11 @@ namespace API_Project_2.Controllers
             if (await roleManager.RoleExistsAsync(UserRoles.Admin))
             {
                 await userManager.AddToRoleAsync(user, UserRoles.Admin);
-                return Ok(new Response
-                {
-                    Status = "Success",
-                    Message = "User created successfully!"
-                });
-
             }
+            return Ok(new Response{
+                Status = "Success",
+                Message = "User created successfully!"
+            });
         }
     }
 }
