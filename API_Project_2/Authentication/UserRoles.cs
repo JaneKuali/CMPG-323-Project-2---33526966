@@ -1,6 +1,6 @@
 ﻿namespace API_Project_2.Authentication
 {
-    public class UserRole
+    public class UserRoles
     {
         public const string Admin = "Admin";
         public const string User = "User";
