@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using API_Project_2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API_Project_2.Controllers
 {

@@ -39,7 +39,7 @@ namespace API_Project_2
 
             // For Identity 
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
-            
+
             //Adding Authentication
             services.AddAuthentication(options =>
             {
@@ -49,18 +49,17 @@ namespace API_Project_2
             })
 
             //Adding Jwt Bearer
-            AddJwtBearer(options =>
+            .AddJwtBearer(options =>
             {
                 options.SaveToken = true;
                 options.RequireHttpsMetadata = false;
-                options.TokenValidationParameters = new TokenValidationParemeter()
+                options.TokenValidationParameters = new TokenValidationParameters()
                 {
                     ValidateIssuer = true,
-                    ValidateAudience = ture,
+                    ValidateAudience = true,
                     ValidAudience = Configuration["JWT:ValidAudience"],
                     ValidIssuer = Configuration["JWT: ValidIssuer"],
-                    IssuerSigningKey new SymmentricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT: Secret"]))
-
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
                 };
             });
         }
@@ -77,7 +76,7 @@ namespace API_Project_2
 
             app.UseRouting();
 
-            app.useAuthentication();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
