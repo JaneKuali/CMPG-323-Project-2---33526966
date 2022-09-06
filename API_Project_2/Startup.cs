@@ -1,3 +1,4 @@
+using API_Project_2.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,7 +12,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using API_Project_2.Authentication;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication;
+using System.Text;
 
 namespace API_Project_2
 {
@@ -31,6 +36,33 @@ namespace API_Project_2
 
             // For Entity Framework 
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("connect")));
+
+            // For Identity 
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+            
+            //Adding Authentication
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+
+            //Adding Jwt Bearer
+            AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                options.RequireHttpsMetadata = false;
+                options.TokenValidationParameters = new TokenValidationParemeter()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = ture,
+                    ValidAudience = Configuration["JWT:ValidAudience"],
+                    ValidIssuer = Configuration["JWT: ValidIssuer"],
+                    IssuerSigningKey new SymmentricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT: Secret"]))
+
+                };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +77,7 @@ namespace API_Project_2
 
             app.UseRouting();
 
+            app.useAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
