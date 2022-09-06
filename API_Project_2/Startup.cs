@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using API_Project_2.Authentication;
 
 namespace API_Project_2
 {
@@ -26,6 +28,9 @@ namespace API_Project_2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            // For Entity Framework 
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("connect")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
