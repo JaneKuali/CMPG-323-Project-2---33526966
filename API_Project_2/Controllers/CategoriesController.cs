@@ -9,6 +9,7 @@ using API_Project_2.Models;
 
 namespace API_Project_2.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
