@@ -39,4 +39,29 @@ We have now created a token from the API which will be used to authorise the use
 
 * Notice the endpoints have unlocked and can be used.
 
+## Endpoints available in the API
+The following section lists the endpoints that are available in the API. 
+
+### 1. Category Endpoints:
+* The first GET method retrieves all Category entries from the database.
+* The second GET method retrieves one Category from the database based on the ID parsed through.
+* The POST method creates a new Category entry on the database.
+* The DELETE method deletes an existing Category entry on the database.
+
 ![unlockedEndpoints](https://user-images.githubusercontent.com/81962930/189093311-d487b04c-8ff6-4a59-a684-a3f78f023af9.PNG)
+
+### 2. Devices Endpoints:
+* The first GET method retrieves all Devices entries from the database.
+* The second GET method retrieves one Devices from the database based on the ID parsed through.
+* The POST method creates a new Devices entry on the database.
+* The DELETE method deletes an existing Devices entry on the database.
+
+![devices](https://user-images.githubusercontent.com/81962930/189098624-45a682da-4f28-4eaa-a449-5a1a374e57c6.PNG)
+
+### 3. Zones Endpoints:
+* The first GET method retrieves all Zones entries from the database
+* The second GET method retrieves one Zones from the database based on the ID parsed through.
+* The POST method creates a new Zones entry on the database.
+* The DELETE method deletes an existing Zones entry on the database.
+
+![zones](https://user-images.githubusercontent.com/81962930/189098559-a276f247-a22d-4ab7-b6d0-89b96fa86864.PNG)
