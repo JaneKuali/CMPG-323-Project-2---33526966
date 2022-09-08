@@ -27,3 +27,16 @@ And then hit "excute". You should receive a token down below in the "Response bo
 ![token](https://user-images.githubusercontent.com/81962930/189086634-fe29449c-1e7b-4b24-b43a-e01cc71f57fa.PNG)
 
 We have now created a token from the API which will be used to authorise the user when attempting to use the endpoints. However, this token has a lifetime which it will be valid to be used. After the "expiration" time the user will need to login again. Note that the user need not to re-register - as their credentials are stored in the database.
+
+### 2. Authorize
+* One last step before we can access and make use of the endpoints is to authorize using the token created. Click on "Authorize".
+
+![authorize](https://user-images.githubusercontent.com/81962930/189092651-7ff63cc5-3bf1-4dca-899d-56e5abe68b3b.PNG)
+
+* Then a prompt to enter the token will appear. To enter the token - the user should type in "Bearer" then space and then paste the copied token and hit "Authorize".
+
+![authorizing](https://user-images.githubusercontent.com/81962930/189093041-b45fe5a5-8d29-4014-b6d1-8415c6294cdc.PNG)
+
+* Notice the endpoints have unlocked and can be used.
+
+![unlockedEndpoints](https://user-images.githubusercontent.com/81962930/189093311-d487b04c-8ff6-4a59-a684-a3f78f023af9.PNG)
