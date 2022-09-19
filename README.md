@@ -65,3 +65,11 @@ The following section lists the endpoints that are available in the API.
 * The DELETE method deletes an existing Zones entry on the database.
 
 ![zones](https://user-images.githubusercontent.com/81962930/189098559-a276f247-a22d-4ab7-b6d0-89b96fa86864.PNG)
+
+## API Manager EndPoints
+
+![endpoints1](https://user-images.githubusercontent.com/81962930/189645707-28146317-bb1e-4bdf-9c8a-3507c678b0d3.PNG)
+
+![endpoints2](https://user-images.githubusercontent.com/81962930/189645761-6e178549-68ac-4b72-99f5-9b70b53ed058.PNG)
+
+![endpoints 3](https://user-images.githubusercontent.com/81962930/189645845-1c648a9e-ef9d-4f29-a39d-bc71ebd16057.PNG)
