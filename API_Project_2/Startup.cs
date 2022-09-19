@@ -44,7 +44,7 @@ namespace API_Project_2
             {
                 c.SwaggerDoc("v2", new OpenApiInfo
                 {
-                    Title = "JWTToken_Auth_API",
+                    Title = "API Connected Office",
                     Version = "v2"
                 });
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
